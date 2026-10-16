@@ -40,7 +40,7 @@ Generate a fresh random `state` for the authorization request. After consent, yo
 
 ## 2. Exchange the authorization code
 
-Send a form-encoded request to the Token endpoint. The `redirect_uri` must match the registered callback used in the authorization request.
+Send a form-encoded request to [Obtain / Refresh Tokens](/reference/post_api-v1-oauth2-token#authorization-code-exchange). The `redirect_uri` must match the registered callback used in the authorization request.
 
 ```bash
 curl --request POST 'https://api.elecq.com/api/v1/oauth2/token' \
@@ -55,6 +55,8 @@ Use the returned `access_token` for resource requests. Store a `refresh_token` i
 
 ## 3. Call a resource endpoint
 
+Use [Hello Test](/reference/get_api-v1-access-hello) to verify your access token.
+
 ```bash
 curl --request GET 'https://api.elecq.com/api/v1/access/hello' \
   --header 'Authorization: Bearer YOUR_ACCESS_TOKEN'
@@ -64,7 +66,7 @@ For manual testing in the API Reference, enter the token value in the Bearer cre
 
 ## 4. Refresh an access token
 
-Use the same Token endpoint and the same HTTP Basic authentication. This flow requires `grant_type=refresh_token` and the latest refresh token; it does not require an authorization code or redirect URI.
+Use the same [Token endpoint](/reference/post_api-v1-oauth2-token#refresh-token) and the same HTTP Basic authentication. This flow requires `grant_type=refresh_token` and the latest refresh token; it does not require an authorization code or redirect URI.
 
 ```bash
 curl --request POST 'https://api.elecq.com/api/v1/oauth2/token' \
