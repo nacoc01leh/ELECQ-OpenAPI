@@ -1,7 +1,0 @@
-- get_api-v1-access-hello
-- get_api-v1-access-user-devices
-- get_api-v1-access-user-device-deviceid
-- post_api-v1-access-charge-start
-- post_api-v1-access-charge-stop
-- post_api-v1-access-register-device
-- delete_api-v1-access-offboard-device
